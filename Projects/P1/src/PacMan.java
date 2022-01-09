@@ -15,7 +15,12 @@ public class PacMan{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;	
+		//check up,down, l, r
+		int x = this.myLoc.x;
+		int y = this.myLoc.y;
+
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		return valid_moves;
 	}
 
 	public boolean move() {

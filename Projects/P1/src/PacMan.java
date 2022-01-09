@@ -20,6 +20,16 @@ public class PacMan{
 		int y = this.myLoc.y;
 
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		//checking right
+		if(!(myMap.getLoc( new Location ( x + 1, y)).equals(Type.WALL))){
+			valid_moves.add(new Location (x + 1, y));
+		}else if(!(myMap.getLoc( new Location ( x - 1, y)).equals(Type.WALL))){
+			valid_moves.add(new Location (x - 1, y));
+		}else if(!(myMap.getLoc( new Location ( x, y + 1)).equals(Type.WALL))){
+			valid_moves.add(new Location (x, y + 1));
+		}else if(!(myMap.getLoc( new Location ( x, y - 1)).equals(Type.WALL))){
+			valid_moves.add(new Location (x, y - 1));
+		}
 		return valid_moves;
 	}
 

@@ -1,12 +1,15 @@
 import java.util.HashSet;
+import java.util.Random;
 import java.util.ArrayList;
 
 public class Ghost {
 	String myName;
 	Location myLoc;
 	Map myMap;
+	Random rand;
 
 	public Ghost(String name, Location loc, Map map) {
+		this.rand = new Random();
 		this.myLoc = loc;
 		this.myName = name;
 		this.myMap = map;
@@ -22,7 +25,8 @@ public class Ghost {
 		if (lst.size() == 0) {
 			return false;
 		} else {
-			myLoc = lst.get(0);
+			myLoc = lst.get(rand.nextInt(lst.size()));
+			myMap.move(myName, myLoc, Map.Type.GHOST);
 			return true;
 		}
 	}

@@ -53,30 +53,30 @@ public class Map{
 	}
 		
 	public boolean move(String name, Location loc, Type type) {
-		//update locations, components, and field
-		//use the setLocation method for the component to move it to the new location
-		if(type == Type.PACMAN){
-			//check if other things are in the way, return false
+		// update locations, components, and field
+		// use the setLocation method for the component to move it to the new location
+		if (type == Type.PACMAN) {
+			// check if other things are in the way, return false
 			Location currLoc = locations.get(name);
-			if(this.getLoc(loc).contains(Type.WALL) || this.getLoc(loc).contains(Type.PACMAN)){
+			if (this.getLoc(loc).contains(Type.WALL) || this.getLoc(loc).contains(Type.PACMAN)) {
 				return false;
 			}
 			PacMan pm = new PacMan(name, currLoc, this);
 			this.locations.replace(name, loc);
 			this.field.get(currLoc).remove(type);
 			this.field.get(loc).add(type);
-			this.component.get(name).setLocation(loc.x, loc.y);
+			this.components.get(name).setLocation(loc.x, loc.y);
 			return true;
-		}else if (type == Type.GHOST){
+		} else if (type == Type.GHOST) {
 			Location currLoc = locations.get(name);
-			if(this.getLoc(loc).contains(Type.WALL)){
+			if (this.getLoc(loc).contains(Type.WALL)) {
 				return false;
 			}
 			Ghost g = new Ghost(name, currLoc, this);
 			this.locations.replace(name, loc);
 			this.field.get(currLoc).remove(type);
 			this.field.get(loc).add(type);
-			this.component.get(name).setLocation(loc.x, loc.y);
+			this.components.get(name).setLocation(loc.x, loc.y);
 			return true;
 		}
 		return false;

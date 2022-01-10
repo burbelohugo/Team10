@@ -33,6 +33,7 @@ public class PacMan {
 			return false;
 		} else {
 			myLoc = lst.get(0);
+			shift 
 			return true;
 		}
 	}

@@ -24,23 +24,6 @@ public class PacMan {
 	}
 
 	public boolean is_ghost_in_range() {
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1) == Map.Type.Ghost)
-		  return true;
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y) == Map.Type.Ghost)
-		  return true;
-		if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1) == Map.Type.Ghost)
-		  return true;
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1) == Map.Type.Ghost)
-		  return true;
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1) == Map.Type.Ghost)
-		  return true;
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y) == Map.Type.Ghost)
-		  return true;
-		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1) == Map.Type.Ghost)
-		  return true;
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1) == Map.Type.Ghost)
-		  return true;
-
 		return false;
 	}
 

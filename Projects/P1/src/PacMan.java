@@ -21,13 +21,13 @@ public class PacMan{
 
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		//checking right
-		if(!(myMap.getLoc( new Location ( x + 1, y)).equals(Type.WALL))){
+		if(!(myMap.getLoc( new Location ( x + 1, y)).contains(Map.Type.WALL))){
 			valid_moves.add(new Location (x + 1, y));
-		}else if(!(myMap.getLoc( new Location ( x - 1, y)).equals(Type.WALL))){
+		}else if(!(myMap.getLoc( new Location ( x - 1, y)).contains(Map.Type.WALL))){
 			valid_moves.add(new Location (x - 1, y));
-		}else if(!(myMap.getLoc( new Location ( x, y + 1)).equals(Type.WALL))){
+		}else if(!(myMap.getLoc( new Location ( x, y + 1)).contains(Map.Type.WALL))){
 			valid_moves.add(new Location (x, y + 1));
-		}else if(!(myMap.getLoc( new Location ( x, y - 1)).equals(Type.WALL))){
+		}else if(!(myMap.getLoc( new Location ( x, y - 1)).contains(Map.Type.WALL))){
 			valid_moves.add(new Location (x, y - 1));
 		}
 		return valid_moves;

@@ -30,7 +30,7 @@ public class PacMan {
 		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL))) {
 			valid_moves.add(new Location(x - 1, y));
 		}
-		if (!(myMap.getLoc(nxew Location(x, y + 1)).contains(Map.Type.WALL))) {
+		if (!(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.WALL))) {
 			valid_moves.add(new Location(x, y + 1));
 		}
 		if (!(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.WALL))) {

@@ -15,15 +15,25 @@ public class PacMan {
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		//pacman does not move diagonal
-		//check up, down, left, right 
-		int X = this.myLoc.x;
-		int Y = this.myLoc.y;
+		// check up,down, l, r
+		int x = this.myLoc.x;
+		int y = this.myLoc.y;
+
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 
-		//up 
-		if(myMap.getLoc(new Location(X, Y + 1).)
-		return valid_moves;	
+		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL))) {
+			valid_moves.add(new Location(x + 1, y));
+		}
+		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL))) {
+			valid_moves.add(new Location(x - 1, y));
+		}
+		if (!(myMap.getLoc(nxew Location(x, y + 1)).contains(Map.Type.WALL))) {
+			valid_moves.add(new Location(x, y + 1));
+		}
+		if (!(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.WALL))) {
+			valid_moves.add(new Location(x, y - 1));
+		}
+		return valid_moves;
 	}
 
 	public boolean move() {

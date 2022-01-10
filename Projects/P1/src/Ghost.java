@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.ArrayList;
 
-public class Ghost{
+public class Ghost {
 	String myName;
 	Location myLoc;
 	Map myMap;
@@ -17,10 +17,17 @@ public class Ghost{
 	}
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> lst = get_valid_moves();
+
+		if (lst.size() == 0) {
+			return false;
+		} else {
+			myLoc = lst.get(0);
+			return true;
+		}
 	}
 
-	public boolean is_pacman_in_range() { 
+	public boolean is_pacman_in_range() {
 		return false;
 	}
 

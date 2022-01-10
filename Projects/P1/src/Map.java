@@ -63,7 +63,7 @@ public class Map{
 			}
 			PacMan pm = new PacMan(name, currLoc, this);
 			this.locations.replace(name, loc);
-			this.field.get(currLoc).remove(type)
+			this.field.get(currLoc).remove(type);
 			this.field.get(loc).add(type);
 			this.component.get(name).setLocation(loc.x, loc.y);
 			return true;
@@ -74,7 +74,7 @@ public class Map{
 			}
 			Ghost g = new Ghost(name, currLoc, this);
 			this.locations.replace(name, loc);
-			this.field.get(currLoc).remove(type)
+			this.field.get(currLoc).remove(type);
 			this.field.get(loc).add(type);
 			this.component.get(name).setLocation(loc.x, loc.y);
 			return true;

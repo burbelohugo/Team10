@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Random;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
@@ -7,8 +8,10 @@ public class PacMan {
 	Location myLoc;
 	Map myMap;
 	Location shift;
+	Random rand;
 
 	public PacMan(String name, Location loc, Map map) {
+		this.rand = new Random();
 		this.myLoc = loc;
 		this.myName = name;
 		this.myMap = map;
@@ -42,7 +45,8 @@ public class PacMan {
 		if (lst.size() == 0) {
 			return false;
 		} else {
-			myLoc = lst.get(0);
+			myLoc = lst.get(rand.nextInt(lst.size()));
+			myMap.move(myName, myLoc, Map.Type.PACMAN);
 			return true;
 		}
 	}

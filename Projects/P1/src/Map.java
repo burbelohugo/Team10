@@ -104,9 +104,9 @@ public class Map {
 				gameOver = true;		// game over
 				return true;
 			}
-		} else {
-			return false;
 		}
+
+		return false
 	}
 
 	public JComponent eatCookie(String name) {

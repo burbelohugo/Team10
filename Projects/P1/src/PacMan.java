@@ -28,7 +28,9 @@ public class PacMan {
 	}
 
 	public JComponent consume() {
+		// checking if pacman's location contains a cookie
 		if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
+			// return JComponent object of Map.eatCookie
 			return myMap.eatCookie(myName);
 		} else {
 			return null;

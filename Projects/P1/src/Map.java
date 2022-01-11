@@ -86,12 +86,10 @@ public class Map {
 
 	public HashSet<Type> getLoc(Location loc) {
 		// wallSet and emptySet will help you write this method
-
 		if (!locations.containsValue(loc))
 		  return wallSet;
 		else
 		  return field.get(loc);
-
 	}
 
 	public boolean attack(String Name) {

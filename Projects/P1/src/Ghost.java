@@ -19,7 +19,7 @@ public class Ghost {
 		//check up,down, l, r
 		int x = this.myLoc.x;
 		int y = this.myLoc.y;
-
+		//ghosts cannot move through walls but they can move through pacman and other ghosts
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		//checking right
 		if(!(myMap.getLoc( new Location ( x + 1, y)).contains(Map.Type.WALL))){

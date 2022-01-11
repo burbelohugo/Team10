@@ -59,7 +59,7 @@ The test provided creates a MainFrame and then adds ghosts to it in two differen
 
 The attack method for the Ghost class just checks if PacMan is close enough to attack, calling the is_pacman_in__range() method from the same Ghost class. The return value of this method is the same as the return value for is_pacman_in_range().
 
-This method initializes a PacMan object (pacman) and a Ghost object (pinky). The ghost is placed one space away from PacMan and tested that pinky.attack() returns true. A new Ghost object (inky) is created and placed outside of attack range. 
+This method initializes a PacMan object (pacman) and a Ghost object (pinky). The ghost is placed one space away from PacMan and tested that pinky.attack() returns true. A new Ghost object (inky) is created and placed outside of attack range.
 
 ## Map.java
 
@@ -75,6 +75,7 @@ In the test, I created a map with one PacMan and two ghosts and tested if I coul
 
 ### attack()
 
+This attack method takes in a String argument (Name) and immediately initializes a new Ghost object (ghost) with the name provided in the argument, the location of said name in the locations HashMap variable, and a map referencing the current Map object. An if statement confirms whether ghost.attack
 
 ### eatCookie()
 

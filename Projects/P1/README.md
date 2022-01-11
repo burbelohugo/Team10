@@ -14,6 +14,7 @@ java -cp "src/" StartMenu
 PacMan.java contains the PacMan class, which has methods that allows PacMan to move around the map and eat cookies when possible.
 
 ### get_valid_moves()
+This method uses Map's getLoc() function to check the nearby neighbors of the PacMan. PacMan can go up, down, left and right and PacMan cannot walk through walls or ghosts. 
 
 
 ### move()
@@ -31,7 +32,7 @@ The test provided creates a MainFrame and then adds PacMan to it. It then checks
 Ghost.java contains the Ghost class, which has methods that allows ghosts to move around the map and attack PacMan when possible.
 
 ### get_valid_moves()
-
+This method uses Map's getLoc() function to check the nearby neighbors of the specified Ghost. Ghosts can go up, down, left and right and PacMan cannot walk through walls, however they can walk through PacMan and other Ghosts. 
 
 ### move()
 This method uses get_valid_moves() to check for possible places that the ghost could move to and then if there are possible moves, it uses the random number generator to choose one of those locations from the list and moves to it. It does this by updating the location of the ghost (myLoc), then it calls the move function on myMap so that this new location is updated on the game board.
@@ -48,6 +49,9 @@ The test provided creates a MainFrame and then adds ghosts to it in two differen
 Map.java contains the Map class, which has methods that allows game board to be updated visually.
 
 ### move()
+This method moves the specified type object to the new location given. First, we check if the new location is occupied by another type and if the spot is empty, the method changes the location of the specified object. Once the object is moved, the hashmaps for locations, component and field are updated with the new information. 
+
+In the test, I created a map with one PacMan and two ghosts and tested if I could move a Ghost to an empty spot and then to one where there was another Ghost. 
 
 
 ### getLoc()

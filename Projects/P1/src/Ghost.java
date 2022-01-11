@@ -16,7 +16,25 @@ public class Ghost {
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		return null;
+		//check up,down, l, r
+		int x = this.myLoc.x;
+		int y = this.myLoc.y;
+		//ghosts cannot move through walls but they can move through pacman and other ghosts
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		//checking right
+		if(!(myMap.getLoc( new Location ( x + 1, y)).contains(Map.Type.WALL))){
+			valid_moves.add(new Location (x + 1, y));
+		}
+		if(!(myMap.getLoc( new Location ( x - 1, y)).contains(Map.Type.WALL))){
+			valid_moves.add(new Location (x - 1, y));
+		}
+		if(!(myMap.getLoc( new Location ( x, y + 1)).contains(Map.Type.WALL))){
+			valid_moves.add(new Location (x, y + 1));
+		}
+		if(!(myMap.getLoc( new Location ( x, y - 1)).contains(Map.Type.WALL))){
+			valid_moves.add(new Location (x, y - 1));
+		}
+		return valid_moves;
 	}
 
 	public boolean move() {

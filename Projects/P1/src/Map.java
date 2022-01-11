@@ -55,6 +55,32 @@ public class Map {
 	public boolean move(String name, Location loc, Type type) {
 		// update locations, components, and field
 		// use the setLocation method for the component to move it to the new location
+		if (type == Type.PACMAN) {
+			// check if other things are in the way, return false
+			Location currLoc = locations.get(name);
+			if (this.getLoc(loc).contains(Type.WALL) || this.getLoc(loc).contains(Type.PACMAN)) {
+				//if there is an wall or a pacman 
+				return false;
+			}
+			PacMan pm = new PacMan(name, currLoc, this);
+			this.locations.replace(name, loc);
+			this.field.get(currLoc).remove(type);
+			this.field.get(loc).add(type);
+			this.components.get(name).setLocation(loc.x, loc.y);
+			return true;
+		} else if (type == Type.GHOST) {
+			Location currLoc = locations.get(name);
+			//ghosts can walk through pacman
+			if (this.getLoc(loc).contains(Type.WALL)) {
+				return false;
+			}
+			Ghost g = new Ghost(name, currLoc, this);
+			this.locations.replace(name, loc);
+			this.field.get(currLoc).remove(type);
+			this.field.get(loc).add(type);
+			this.components.get(name).setLocation(loc.x, loc.y);
+			return true;
+		}
 		return false;
 	}
 
@@ -74,7 +100,18 @@ public class Map {
 	public JComponent eatCookie(String name) {
 		// update locations, components, field, and cookies
 		// the id for a cookie at (10, 1) is tok_x10_y1
-		// Katie
-		return null;
+
+		JComponent comp = components.get(name); // Get the JComponenet for name
+		Location loc = locations.get(name); // Get the location for name
+		HashSet<Type> set = field.get(loc); // Get the set at the location
+
+		if (!set.contains(Type.COOKIE)) {
+			return null; // If there's no cookie, return null
+		} else {
+			set.remove(Type.COOKIE); // Remove the cookie
+			field.replace(loc, set); // Update the field contents with the new set
+			cookies++; // Update cookies consumed
+			return comp; // Return the JComponent
+		}
 	}
 }

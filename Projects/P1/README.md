@@ -1,7 +1,7 @@
 # Autonomous PacMan
 By Mei-An Blatchford, Kieran Dougal, Katherine Kemp, and Zayd Choudhary for CMSC388T Winter 2022
 
-![PacMan](/pacman.png "PacMan")
+![PacMan](/pacman.png)
 
 ## How to run the game
 To run the game, navigate to the folder that contains it. Then run the following commands in your command line. This will require that you have Java isntalled.

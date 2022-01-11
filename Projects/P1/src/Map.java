@@ -86,15 +86,27 @@ public class Map {
 
 	public HashSet<Type> getLoc(Location loc) {
 		// wallSet and emptySet will help you write this method
+
 		if (!locations.containsValue(loc))
 		  return wallSet;
 		else
 		  return field.get(loc);
+
 	}
 
 	public boolean attack(String Name) {
 		// update gameOver
-		return false;
+		Ghost ghost = new Ghost(Name, this.locations.get(Name), this);
+
+		if (ghost.attack == true) {		// ghost attacks pacman
+			// move ghost to pacman's location
+			if (move(Name, this.locations.get("pacman"), Type.GHOST)) {
+				gameOver = true;		// game over
+				return true;
+			}
+		} else {
+			return false;
+		}
 	}
 
 	public JComponent eatCookie(String name) {

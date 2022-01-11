@@ -25,7 +25,7 @@ This method uses get_valid_moves() to check for possible places that PacMan coul
 The test provided creates a MainFrame and then adds PacMan to it. It then checks PacMan does move from this location, which should be true due to the location he is at. Then two ghosts are added in order to corner PacMan, and we check that he is unable to move.
 
 ### is_ghost_in_range()
-
+This method refers to the location of the pacman and uses getLoc from map to check the surrounding types for ghosts and if there is a ghost then returns true, checks all 8 spots otherwise returns false
 
 ### consume()
 
@@ -44,7 +44,7 @@ This method uses get_valid_moves() to check for possible places that the ghost c
 The test provided creates a MainFrame and then adds ghosts to it in two different places. Then it checks that the ghosts can move, which should be true because they are not blocked in based on where they are placed.
 
 ### is_pacman_in_range()
-
+This method refers to the location of the ghost and uses getLoc from map to check the surrounding types for pacman and if there is one then returns true, checks all 8 spots otherwise returns false
 
 ### attack()
 
@@ -59,7 +59,7 @@ In the test, I created a map with one PacMan and two ghosts and tested if I coul
 
 
 ### getLoc()
-
+Checks if the location was enetered in locations hash, if not returns wallset to avoid null pointer exception, otherwise returns hashset with the type
 
 ### attack()
 

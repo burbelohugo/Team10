@@ -2,8 +2,8 @@ import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
 
-public class TestPacManConsume {
-    public void testConsume {
+public class TestGhostAttack {
+    public void testGhostAttack {
         Mainframe mainFrame = new Mainframe();
         NoFrame noFrame = new NoFrame();
         PacMan pacman = frame.addPacMan(new Location(1,1));

@@ -16,6 +16,8 @@ PacMan.java contains the PacMan class, which has methods that allows PacMan to m
 ### get_valid_moves()
 This method uses Map's getLoc() function to check the nearby neighbors of the PacMan. PacMan can go up, down, left and right and PacMan cannot walk through walls or ghosts. 
 
+The test puts the PacMan on location (9,12) and calls get_valid_moves and asserts equal to the array of locations that are expected.
+
 
 ### move()
 This method uses get_valid_moves() to check for possible places that PacMan could move to and then if there are possible moves, it uses the random number generator to choose one of those locations from the list and moves to it. It does this by updating the location of the ghost (myLoc), then it calls the move function on myMap so that this new location is updated on the game board.
@@ -33,6 +35,8 @@ Ghost.java contains the Ghost class, which has methods that allows ghosts to mov
 
 ### get_valid_moves()
 This method uses Map's getLoc() function to check the nearby neighbors of the specified Ghost. Ghosts can go up, down, left and right and PacMan cannot walk through walls, however they can walk through PacMan and other Ghosts. 
+
+The test puts a Ghost on location (9,12) and calls get_valid_moves and asserts equal to the array of locations that are expected.
 
 ### move()
 This method uses get_valid_moves() to check for possible places that the ghost could move to and then if there are possible moves, it uses the random number generator to choose one of those locations from the list and moves to it. It does this by updating the location of the ghost (myLoc), then it calls the move function on myMap so that this new location is updated on the game board.

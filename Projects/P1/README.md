@@ -27,6 +27,8 @@ The test provided creates a MainFrame and then adds PacMan to it. It then checks
 ### is_ghost_in_range()
 This method refers to the location of the pacman and uses getLoc from map to check the surrounding types for ghosts and if there is a ghost then returns true, checks all 8 spots otherwise returns false
 
+The test places a ghost within range of the pacman and asserts true, also does it without a ghost and return false
+
 ### consume()
 
 
@@ -45,6 +47,8 @@ The test provided creates a MainFrame and then adds ghosts to it in two differen
 
 ### is_pacman_in_range()
 This method refers to the location of the ghost and uses getLoc from map to check the surrounding types for pacman and if there is one then returns true, checks all 8 spots otherwise returns false
+
+The test places pacman within range of the ghost and asserts true, also does it without pacman and returns false
 
 ### attack()
 

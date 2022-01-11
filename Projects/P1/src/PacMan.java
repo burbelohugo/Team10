@@ -20,7 +20,7 @@ public class PacMan{
 		int y = this.myLoc.y;
 
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
-
+		//pacman can not walk through walls or ghosts
 		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL)) 
 		|| !(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x + 1, y));

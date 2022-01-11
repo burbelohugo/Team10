@@ -10,6 +10,6 @@ public class TestPacManMove extends TestCase {
 		assertTrue(pm.move(), true);
 		Ghost g1 = frame.addGhost(new Location(2, 3), "Bob", Color.red);
 		Ghost g2 = frame.addGhost(new Location(3, 2), "Linda", Color.cyan);
-		assertFalse(pm.move(), false);
+		assertFalse(pm1.move(), false);
 	}
 }

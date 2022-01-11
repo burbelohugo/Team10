@@ -73,7 +73,7 @@ public class PacMan {
 		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.GHOST))
 		  return true;
 
-		return false;
+
 	}
 
 	public JComponent consume() {

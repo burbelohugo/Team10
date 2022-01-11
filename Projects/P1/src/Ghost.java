@@ -50,31 +50,28 @@ public class Ghost {
 	}
 
 	public boolean is_pacman_in_range() {
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1) == Map.Type.PACMAN)
+		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1)).contains(Map.Type.PACMAN))
                   return true;
-                if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y) == Map.Type.PACMAN)
+                if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.PACMAN))
                   return true;
-                if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1) == Map.Type.PACMAN)
+                if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.PACMAN))
                   return true;
-                if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1) == Map.Type.PACMAN)
+                if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.PACMAN))
                   return true;
-                if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1) == Map.Type.PACMAN)
+                if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.PACMAN))
                   return true;
-                if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y) == Map.Type.PACMAN)
+                if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.PACMAN))
                   return true;
-                if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1) == Map.Type.PACMAN)
+                if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.PACMAN))
                   return true;
-                if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1) == Map.Type.PACMAN)
+                if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.PACMAN))
                   return true;
 
                 return false;
 	}
 
 	public boolean attack() {
-		if (is_pacman_in_range) {	// checking if pacman is within range
-			return true;			// ghost attacks
-		} else {
-			return false;
-		}
+		return is_pacman_in_range(); // If PacMan is in range, ghost attacks. If not, ghost doesn't attack.
+
 	}
 }

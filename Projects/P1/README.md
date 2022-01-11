@@ -69,13 +69,15 @@ Map.java contains the Map class, which has methods that allows game board to be 
 
 This method moves the specified type object to the new location given. First, we check if the new location is occupied by another type and if the spot is empty, the method changes the location of the specified object. Once the object is moved, the hashmaps for locations, component and field are updated with the new information.
 
-In the test, I created a map with one PacMan and two ghosts and tested if I could move a Ghost to an empty spot and then to one where there was another Ghost.
+In the code test, I created a map with one PacMan and two ghosts and tested if I could move a Ghost to an empty spot and then to one where there was another Ghost.
 
 ### getLoc()
 
 ### attack()
 
-This attack method takes in a String argument (Name) and immediately initializes a new Ghost object (ghost) with the name provided in the argument, the location of said name in the locations HashMap variable, and a map referencing the current Map object. An if statement confirms whether ghost.attack
+This attack method takes in a String argument (Name) and immediately initializes a new Ghost object (ghost) with the name provided in the argument, the location of said name in the locations HashMap variable, and a map referencing the current Map object. An if statement confirms that ghost.attack() is true. A nested if statement tries to move the ghost to PacMan's position. If it is successful, the gameOver variable is made true and the method returns true. If any if statements are false, the method returns false.
+
+Similarly to the ghost.attack() method, a PacMan object (pacman) and a Ghost object (pinky) are initialized. The pinky ghost is placed one space away from PacMan. An assert statement confirms that the map.attack("pinky"), referencing the map in the MainFrame object, returns true. A new Ghost object (ink) is created and placed out of attack range from PacMan. The same test is run to ensure the attack method returns false.
 
 ### eatCookie()
 

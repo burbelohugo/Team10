@@ -106,7 +106,7 @@ public class Map {
 			}
 		}
 
-		return false
+		return false;
 	}
 
 	public JComponent eatCookie(String name) {

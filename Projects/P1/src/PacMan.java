@@ -24,16 +24,20 @@ public class PacMan {
 
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 
-		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL)) || !(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL)) 
+		|| !(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x + 1, y));
 		}
-		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL)) || !(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL)) 
+		|| !(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x - 1, y));
 		}
-		if (!(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.WALL)) || !(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.WALL)) 
+		|| !(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x, y + 1));
 		}
-		if (!(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.WALL)) || !(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.WALL)) 
+		|| !(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x, y - 1));
 		}
 		return valid_moves;

@@ -59,6 +59,7 @@ public class Map {
 			// check if other things are in the way, return false
 			Location currLoc = locations.get(name);
 			if (this.getLoc(loc).contains(Type.WALL) || this.getLoc(loc).contains(Type.PACMAN)) {
+				//if there is an wall or a pacman 
 				return false;
 			}
 			PacMan pm = new PacMan(name, currLoc, this);
@@ -69,6 +70,7 @@ public class Map {
 			return true;
 		} else if (type == Type.GHOST) {
 			Location currLoc = locations.get(name);
+			//ghosts can walk through pacman
 			if (this.getLoc(loc).contains(Type.WALL)) {
 				return false;
 			}

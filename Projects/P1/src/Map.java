@@ -67,7 +67,7 @@ public class Map {
 		// update gameOver
 		Ghost ghost = new Ghost(Name, this.locations.get(Name), this);
 
-		if (ghost.attack == true) {		// ghost attacks pacman
+		if (ghost.attack() == true) {		// ghost attacks pacman
 			// move ghost to pacman's location
 			if (move(Name, this.locations.get("pacman"), Type.GHOST)) {
 				gameOver = true;		// game over

@@ -53,7 +53,7 @@ public class Map {
 	}
 
 	public boolean move(String name, Location loc, Type type) {
-		System.out.println("MOVE");
+		//System.out.println("MOVE");
 		// update locations, components, and field
 		// use the setLocation method for the component to move it to the new location
 		if (type == Type.PACMAN) {
@@ -86,7 +86,7 @@ public class Map {
 	}
 
 	public HashSet<Type> getLoc(Location loc) {
-		System.out.println("GETLOC");
+		//System.out.println("GETLOC");
 		// wallSet and emptySet will help you write this method
 		if (!locations.containsValue(loc))
 			return wallSet;

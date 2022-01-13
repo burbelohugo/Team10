@@ -67,10 +67,12 @@ public class Ghost {
                 if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.PACMAN))
                   return true;
 
-                return false;
+      return false;
 	}
 
 	public boolean attack() {
+
 		return is_pacman_in_range(); // If PacMan is in range, ghost attacks. If not, ghost doesn't attack.
+
 	}
 }

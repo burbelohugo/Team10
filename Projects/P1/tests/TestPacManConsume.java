@@ -2,15 +2,16 @@ import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
 
-public class TestPacManConsume {
-    public void testConsume() {
-        Mainframe mainFrame = new Mainframe();
-        NoFrame noFrame = new NoFrame();
+public class TestPacManConsume extends TestCase {
+
+    public void testConsume1() throws FileNotFoundException {
+        NoFrame frame = new NoFrame(); // Spawns cookies on all locations
         PacMan pacman = frame.addPacMan(new Location(1,1));
 
-        assertEquals(pacman.consume(), null);
+        // Making sure PacMan eats the cookie at his current location
+        assertNotNull(pacman.consume());
 
-        mainFrame.getMap.add("tok_x1_y1", new Location(1,1), new CookieComponent() cookie, mainFrame.getMap.Type.COOKIE);
-        assertNotEquals(pacman.consume(), null);
+        // Rechecking same location, now empty with no cookie
+        assertNull(pacman.consume());
     }
 }

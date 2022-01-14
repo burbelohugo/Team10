@@ -3,7 +3,7 @@
 name: PacManCI
 
 # Controls when the workflow will run
-on: [push, pull_requests, workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]
 
   # Allows you to run this workflow manually from the Actions tab
 

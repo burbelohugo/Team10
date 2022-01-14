@@ -53,7 +53,7 @@ public class Map {
 	}
 
 	public boolean move(String name, Location loc, Type type) {
-		//System.out.println("MOVE");
+		// System.out.println("MOVE");
 		// update locations, components, and field
 		// use the setLocation method for the component to move it to the new location
 		if (type == Type.PACMAN) {
@@ -86,7 +86,7 @@ public class Map {
 	}
 
 	public HashSet<Type> getLoc(Location loc) {
-		//System.out.println("GETLOC");
+		// System.out.println("GETLOC");
 		// wallSet and emptySet will help you write this method
 		if (!locations.containsValue(loc))
 			return wallSet;
@@ -115,12 +115,12 @@ public class Map {
 		// the id for a cookie at (10, 1) is tok_x10_y1
 
 		Location loc = locations.get(name); // Get the location for name
-		String id = "tok_x" + loc.x + "_y" + loc.y;
+		String id = "tok_x" + loc.y + "_y" + loc.x;
 		JComponent comp = components.get(id); // Get the JComponenet for name
 		HashSet<Type> set = field.get(loc); // Get the set at the location
 
 		if (!set.contains(Type.COOKIE)) {
-			return null; // If there's no cookie, return null
+			return comp; // If there's no cookie, return null
 		} else {
 			set.remove(Type.COOKIE); // Remove the cookie
 			field.replace(loc, set); // Update the field contents with the new set

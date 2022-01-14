@@ -47,11 +47,11 @@ public class PacMan {
 		ArrayList<Location> lst = get_valid_moves();
 
 		if (lst.size() == 0) {
-			return false;
+			return true;
 		} else {
 			myLoc = lst.get(rand.nextInt(lst.size()));
-			myMap.move(myName, myLoc, Map.Type.PACMAN);
-			return true;
+			myMap.move(myName, myLoc, Map.Type.GHOST);
+			return false;
 		}
 	}
 

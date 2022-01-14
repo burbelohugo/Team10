@@ -41,7 +41,7 @@ public class Ghost {
 	public boolean move() {
 		ArrayList<Location> lst = get_valid_moves();
 
-		if (lst.size() == 0) {
+		if (lst.size() != 0) {
 			return false;
 		} else {
 			myLoc = lst.get(rand.nextInt(lst.size()));

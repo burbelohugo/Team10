@@ -23,11 +23,11 @@ public class Ghost {
 		// ghosts
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		// checking right
-		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL))) {
-			valid_moves.add(new Location(x + 1, y));
+		if (!(myMap.getLoc(new Location(x, y)).contains(Map.Type.WALL))) {
+			valid_moves.add(new Location(x, y));
 		}
 		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL))) {
-			valid_moves.add(new Location(x - 1, y));
+			valid_moves.add(new Location(x - 1, x));
 		}
 		if (!(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.WALL))) {
 			valid_moves.add(new Location(x, y + 1));

@@ -23,21 +23,21 @@ public class PacMan {
 		int y = this.myLoc.y;
 
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
-		//pacman can not walk through walls or ghosts
-		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL)) 
-		&& !(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
+		// pacman can not walk through walls or ghosts
+		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL))
+				&& !(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x + 1, y));
 		}
-		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL)) 
-		&& !(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL))
+				&& !(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x - 1, y));
 		}
-		if (!(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.WALL)) 
-		&& !(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.WALL))
+				&& !(myMap.getLoc(new Location(x, y + 1)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x, y + 1));
 		}
-		if (!(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.WALL)) 
-		&& !(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.WALL))
+				&& !(myMap.getLoc(new Location(x, y - 1)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x, y - 1));
 		}
 		return valid_moves;
@@ -57,21 +57,21 @@ public class PacMan {
 
 	public boolean is_ghost_in_range() {
 		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 		if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.GHOST))
-		  return true;
+			return true;
 
 		return false;
 	}

@@ -53,13 +53,14 @@ public class Map {
 	}
 
 	public boolean move(String name, Location loc, Type type) {
+		//System.out.println("MOVE");
 		// update locations, components, and field
 		// use the setLocation method for the component to move it to the new location
 		if (type == Type.PACMAN) {
 			// check if other things are in the way, return false
 			Location currLoc = locations.get(name);
 			if (this.getLoc(loc).contains(Type.WALL) || this.getLoc(loc).contains(Type.PACMAN)) {
-				//if there is an wall or a pacman 
+				// if there is an wall or a pacman
 				return false;
 			}
 			PacMan pm = new PacMan(name, currLoc, this);
@@ -70,7 +71,7 @@ public class Map {
 			return true;
 		} else if (type == Type.GHOST) {
 			Location currLoc = locations.get(name);
-			//ghosts can walk through pacman
+			// ghosts can walk through pacman
 			if (this.getLoc(loc).contains(Type.WALL)) {
 				return false;
 			}
@@ -85,21 +86,23 @@ public class Map {
 	}
 
 	public HashSet<Type> getLoc(Location loc) {
+		//System.out.println("GETLOC");
 		// wallSet and emptySet will help you write this method
 		if (!locations.containsValue(loc))
-		  return wallSet;
+			return wallSet;
 		else
-		  return field.get(loc);
+			return field.get(loc);
 	}
 
 	public boolean attack(String Name) {
+
 		// update gameOver
 		Ghost ghost = new Ghost(Name, this.locations.get(Name), this);
 
-		if (ghost.attack() == true) {		// ghost attacks pacman
+		if (ghost.attack() == true) { // ghost attacks pacman
 			// move ghost to pacman's location
 			if (move(Name, this.locations.get("pacman"), Type.GHOST)) {
-				gameOver = true;		// game over
+				gameOver = true; // game over
 				return true;
 			}
 		}
@@ -111,8 +114,9 @@ public class Map {
 		// update locations, components, field, and cookies
 		// the id for a cookie at (10, 1) is tok_x10_y1
 
-		JComponent comp = components.get(name); // Get the JComponenet for name
 		Location loc = locations.get(name); // Get the location for name
+		String id = "tok_x" + loc.x + "_y" + loc.y;
+		JComponent comp = components.get(id); // Get the JComponenet for name
 		HashSet<Type> set = field.get(loc); // Get the set at the location
 
 		if (!set.contains(Type.COOKIE)) {

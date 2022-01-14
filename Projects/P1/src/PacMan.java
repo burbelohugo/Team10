@@ -51,7 +51,7 @@ public class PacMan {
 		} else {
 			myLoc = lst.get(rand.nextInt(lst.size()));
 			myMap.move(myName, myLoc, Map.Type.GHOST);
-			return false;
+			return true;
 		}
 	}
 

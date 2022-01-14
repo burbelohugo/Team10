@@ -42,12 +42,10 @@ public class Ghost {
 		ArrayList<Location> lst = get_valid_moves();
 
 		if (lst.size() != 0) {
-			return false;
-		} else {
 			myLoc = lst.get(rand.nextInt(lst.size()));
 			myMap.move(myName, myLoc, Map.Type.GHOST);
-			return true;
 		}
+		return false;
 	}
 
 	public boolean is_pacman_in_range() {

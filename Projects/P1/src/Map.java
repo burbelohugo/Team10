@@ -80,9 +80,9 @@ public class Map {
 			this.field.get(currLoc).remove(type);
 			this.field.get(loc).add(type);
 			this.components.get(name).setLocation(loc.x, loc.y);
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	public HashSet<Type> getLoc(Location loc) {

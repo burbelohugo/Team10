@@ -88,8 +88,8 @@ public class Map {
 	public HashSet<Type> getLoc(Location loc) {
 		// System.out.println("GETLOC");
 		// wallSet and emptySet will help you write this method
-		if (!locations.containsValue(loc))
-			return wallSet;
+		if (locations.containsValue(loc))
+			return emptySet;
 		else
 			return field.get(loc);
 	}

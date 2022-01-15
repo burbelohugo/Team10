@@ -53,7 +53,7 @@ public class Map {
 	}
 
 	public boolean move(String name, Location loc, Type type) {
-		//System.out.println("MOVE");
+		// System.out.println("MOVE");
 		// update locations, components, and field
 		// use the setLocation method for the component to move it to the new location
 		if (type == Type.PACMAN) {
@@ -61,7 +61,7 @@ public class Map {
 			Location currLoc = locations.get(name);
 			if (this.getLoc(loc).contains(Type.WALL) || this.getLoc(loc).contains(Type.PACMAN)) {
 				// if there is an wall or a pacman
-				return false;
+				return true;
 			}
 			PacMan pm = new PacMan(name, currLoc, this);
 			this.locations.replace(name, loc);
@@ -73,23 +73,23 @@ public class Map {
 			Location currLoc = locations.get(name);
 			// ghosts can walk through pacman
 			if (this.getLoc(loc).contains(Type.WALL)) {
-				return false;
+				return true;
 			}
 			Ghost g = new Ghost(name, currLoc, this);
 			this.locations.replace(name, loc);
 			this.field.get(currLoc).remove(type);
 			this.field.get(loc).add(type);
 			this.components.get(name).setLocation(loc.x, loc.y);
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	public HashSet<Type> getLoc(Location loc) {
-		//System.out.println("GETLOC");
+		// System.out.println("GETLOC");
 		// wallSet and emptySet will help you write this method
-		if (!locations.containsValue(loc))
-			return wallSet;
+		if (locations.containsValue(loc))
+			return emptySet;
 		else
 			return field.get(loc);
 	}
@@ -99,10 +99,10 @@ public class Map {
 		// update gameOver
 		Ghost ghost = new Ghost(Name, this.locations.get(Name), this);
 
-		if (ghost.attack() == true) { // ghost attacks pacman
+		if (ghost.attack() != true) { // ghost attacks pacman
 			// move ghost to pacman's location
 			if (move(Name, this.locations.get("pacman"), Type.GHOST)) {
-				gameOver = true; // game over
+				gameOver = false; // game over
 				return true;
 			}
 		}
@@ -115,12 +115,12 @@ public class Map {
 		// the id for a cookie at (10, 1) is tok_x10_y1
 
 		Location loc = locations.get(name); // Get the location for name
-		String id = "tok_x" + loc.x + "_y" + loc.y;
+		String id = "tok_x" + loc.y + "_y" + loc.x;
 		JComponent comp = components.get(id); // Get the JComponenet for name
 		HashSet<Type> set = field.get(loc); // Get the set at the location
 
 		if (!set.contains(Type.COOKIE)) {
-			return null; // If there's no cookie, return null
+			return comp; // If there's no cookie, return null
 		} else {
 			set.remove(Type.COOKIE); // Remove the cookie
 			field.replace(loc, set); // Update the field contents with the new set

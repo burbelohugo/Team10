@@ -24,8 +24,8 @@ public class PacMan {
 
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		// pacman can not walk through walls or ghosts
-		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL))
-				&& !(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
+		if ((myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL))
+				|| (myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x + 1, y));
 		}
 		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL))
@@ -47,30 +47,30 @@ public class PacMan {
 		ArrayList<Location> lst = get_valid_moves();
 
 		if (lst.size() == 0) {
-			return false;
+			return true;
 		} else {
 			myLoc = lst.get(rand.nextInt(lst.size()));
-			myMap.move(myName, myLoc, Map.Type.PACMAN);
+			myMap.move(myName, myLoc, Map.Type.GHOST);
 			return true;
 		}
 	}
 
 	public boolean is_ghost_in_range() {
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x - 2, myLoc.y - 2)).contains(Map.Type.GHOST))
 			return true;
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x - 2, myLoc.y)).contains(Map.Type.GHOST))
 			return true;
-		if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 2)).contains(Map.Type.GHOST))
 			return true;
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x - 2, myLoc.y + 2)).contains(Map.Type.GHOST))
 			return true;
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x + 2, myLoc.y + 2)).contains(Map.Type.GHOST))
 			return true;
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x + 2, myLoc.y)).contains(Map.Type.GHOST))
 			return true;
-		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 2)).contains(Map.Type.GHOST))
 			return true;
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.GHOST))
+		if (myMap.getLoc(new Location(myLoc.x + 2, myLoc.y - 2)).contains(Map.Type.GHOST))
 			return true;
 
 		return false;
@@ -80,9 +80,9 @@ public class PacMan {
 		// checking if pacman's location contains a cookie
 		if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
 			// return JComponent object of Map.eatCookie
-			return myMap.eatCookie(myName);
+			return myMap.eatCookie("myName");
 		} else {
-			return null;
+			return CookieComponent(myLoc.x, myLoc.y, 1);
 		}
 	}
 }

@@ -24,8 +24,8 @@ public class PacMan {
 
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		// pacman can not walk through walls or ghosts
-		if ((myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL))
-				|| (myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
+		if (!(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.WALL))
+				&& !(myMap.getLoc(new Location(x + 1, y)).contains(Map.Type.GHOST))) {
 			valid_moves.add(new Location(x + 1, y));
 		}
 		if (!(myMap.getLoc(new Location(x - 1, y)).contains(Map.Type.WALL))
@@ -47,10 +47,10 @@ public class PacMan {
 		ArrayList<Location> lst = get_valid_moves();
 
 		if (lst.size() == 0) {
-			return true;
+			return false;
 		} else {
 			myLoc = lst.get(rand.nextInt(lst.size()));
-			myMap.move(myName, myLoc, Map.Type.GHOST);
+			myMap.move(myName, myLoc, Map.Type.PACMAN);
 			return true;
 		}
 	}
@@ -82,7 +82,7 @@ public class PacMan {
 			// return JComponent object of Map.eatCookie
 			return myMap.eatCookie("myName");
 		} else {
-			return CookieComponent(myLoc.x, myLoc.y, 1);
+			return null;
 		}
 	}
 }

@@ -86,12 +86,12 @@ public class Map {
 	}
 
 	public HashSet<Type> getLoc(Location loc) {
-		// System.out.println("GETLOC");
-		// wallSet and emptySet will help you write this method
-		if (locations.containsValue(loc))
-			return emptySet;
-		else
+		if (field.containsKey(loc)) {
 			return field.get(loc);
+		}
+		HashSet<Type> priorFieldSet = new HashSet<Type>();
+		priorFieldSet.add((Map.Type.WALL));
+		return priorFieldSet;
 	}
 
 	public boolean attack(String Name) {

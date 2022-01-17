@@ -80,7 +80,7 @@ public class Ghost {
 
 	public boolean attack() {
 
-		return move(); // If PacMan is in range, ghost attacks. If not, ghost doesn't attack.
+		return is_pacman_in_range(); // If PacMan is in range, ghost attacks. If not, ghost doesn't attack.
 
 	}
 }

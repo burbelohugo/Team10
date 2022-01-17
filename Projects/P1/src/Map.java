@@ -61,7 +61,7 @@ public class Map {
 			Location currLoc = locations.get(name);
 			if (this.getLoc(loc).contains(Type.WALL) || this.getLoc(loc).contains(Type.PACMAN)) {
 				// if there is an wall or a pacman
-				return true;
+				return false;
 			}
 			PacMan pm = new PacMan(name, currLoc, this);
 			this.locations.replace(name, loc);
@@ -73,16 +73,16 @@ public class Map {
 			Location currLoc = locations.get(name);
 			// ghosts can walk through pacman
 			if (this.getLoc(loc).contains(Type.WALL)) {
-				return true;
+				return false;
 			}
 			Ghost g = new Ghost(name, currLoc, this);
 			this.locations.replace(name, loc);
 			this.field.get(currLoc).remove(type);
 			this.field.get(loc).add(type);
 			this.components.get(name).setLocation(loc.x, loc.y);
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	public HashSet<Type> getLoc(Location loc) {

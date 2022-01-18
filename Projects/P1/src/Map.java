@@ -114,18 +114,17 @@ public class Map {
 		// update locations, components, field, and cookies
 		// the id for a cookie at (10, 1) is tok_x10_y1
 
-		Location loc = locations.get(name); // Get the location for name
-		String id = "tok_x" + loc.y + "_y" + loc.x;
-		JComponent comp = components.get(id); // Get the JComponenet for name
-		HashSet<Type> set = field.get(loc); // Get the set at the location
-
-		if (!set.contains(Type.COOKIE)) {
-			return comp; // If there's no cookie, return null
-		} else {
-			set.remove(Type.COOKIE); // Remove the cookie
-			field.replace(loc, set); // Update the field contents with the new set
-			cookies++; // Update cookies consumed
-			return comp; // Return the JComponent
-		}
+		String[] array = name.replace("x","").replace("y","").split("_");
+		int x = Integer.parseInt(array[1]);
+		int y = Integer.parseInt(array[2]);
+		locations.remove(name);
+		JComponent j = components.remove(name);
+		Location loc = new Location(x, y);
+		HashSet<Type> priorFieldSet = field.get(loc);
+		priorFieldSet.remove(Type.COOKIE);
+		field.remove(loc);
+		field.put(loc, priorFieldSet);
+		cookies++;
+		return j;
 	}
 }

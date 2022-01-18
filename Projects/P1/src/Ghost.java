@@ -44,6 +44,7 @@ public class Ghost {
 		if (lst.size() != 0) {
 			myLoc = lst.get(rand.nextInt(lst.size()));
 			myMap.move(myName, myLoc, Map.Type.GHOST);
+			return true;
 		}
 		return false;
 	}
